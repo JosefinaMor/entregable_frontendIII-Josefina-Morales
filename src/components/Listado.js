@@ -9,12 +9,15 @@ import React from 'react';
 import { useState } from "react";
 import Item from './Item';
 
-export default function Listado() {
+export default function Listado( {array} ) {
+  console.log(array);
+  const [arrayProductos, setArrayProductos] = useState(array);
+
+
   return (
     <div className='container'>
       {arrayProductos.map((producto)=>(
-        <Item obj={producto}/>
-      ))}
-        
+        <Item key={producto.id} obj={producto}/>
+      ))}    
     </div>)
-      }
+}

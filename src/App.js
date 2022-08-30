@@ -6,14 +6,15 @@
 // PROPS: App deberá pasar por props lo necesario a sus componenetes internos.
 
 import React from 'react';
-import { useState } from "react";
+import Cabecera from './components/Cabecera';
+import Listado from './components/Listado';
 
 function App() {
-
+  const data = require("./components/data.json");
   return (
     <div className="App">
       <Cabecera />
-      <Listado />
+      <Listado array={data} />
     </div>
   );
 }

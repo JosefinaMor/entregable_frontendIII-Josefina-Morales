@@ -13,17 +13,23 @@ import { useState } from "react";
 
 export default function Item({ obj }) {
   const [cantStock, setCantStock] = useState(obj.stock);
+  
   const handleBotonComprar = () =>{
     setCantStock(obj.stock - 1);
+    console.log("hola"+ obj.stock)
   }
   return (
     <div className='producto'>
       <h3>{obj.producto.nombre}</h3>
       <p>{obj.producto.descripcion}</p>
       <h5> 
-        <span>{cantStock > 0 ? obj.stock : "AGOTADO"}</span>
+        {cantStock > 0 
+        ? obj.stock 
+        : <span>AGOTADO</span>}
       </h5>
-      {cantStock > 0 ? <button onClick = {() => handleBotonComprar()}>comprar</button> : <button disabled>SIN STOCK</button> }    
+      {cantStock > 0 
+      ? <button onClick = {() => handleBotonComprar()}>comprar</button> 
+      : <button disabled>SIN STOCK</button> }    
     </div>
   )
 }

@@ -10,12 +10,13 @@ import { useState } from "react";
 //    p > span     (el span mostrará la cantidad recibida por props)
 
 export default function Cabecera({ cantProducto }) {
-  const [cantProducto, setCantProducto] = useState(0);
+  const [cantComprado, setCantComprado] = useState(0);
 
+  
   return (
     <header>
         <h1>Carrito de compras</h1>
-        <p>Cantidad de productos <span>${cantProducto}</span></p>
+        <p>Cantidad de productos <span>{cantComprado}</span></p>
     </header>
   )
 }
