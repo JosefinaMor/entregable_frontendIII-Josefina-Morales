@@ -18,8 +18,9 @@ function App() {
 
   return (
     <div className="App">
-      <Cabecera cantProductos={productoAniadido}/>
-      <Listado array={data} />
+      <Cabecera productoAniadido={productoAniadido}/>
+      <Listado array={data} 
+               onAniadirProducto={aniadirProducto}/>
     </div>
   );
 }

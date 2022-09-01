@@ -11,15 +11,16 @@
 import React from 'react';
 import { useState } from "react";
 
-export default function Item({ obj }) {
+export default function Item({ key, obj, onAniadirProducto }) {
   const [cantStock, setCantStock] = useState(obj.stock);
   
   const handleBotonComprar = () =>{
     setCantStock(obj.stock - 1);
-    console.log("hola"+ obj.stock)
+    onAniadirProducto();
   }
+
   return (
-    <div className='producto'>
+    <div key={key} className='producto'>
       <h3>{obj.producto.nombre}</h3>
       <p>{obj.producto.descripcion}</p>
       <h5> 
@@ -28,7 +29,7 @@ export default function Item({ obj }) {
         : <span>AGOTADO</span>}
       </h5>
       {cantStock > 0 
-      ? <button onClick = {() => handleBotonComprar()}>comprar</button> 
+      ? <button onClick = {() =>{ handleBotonComprar()}}>comprar</button> 
       : <button disabled>SIN STOCK</button> }    
     </div>
   )

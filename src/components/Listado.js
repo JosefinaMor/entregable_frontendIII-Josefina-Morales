@@ -9,7 +9,7 @@ import React from 'react';
 import { useState } from "react";
 import Item from './Item';
 
-export default function Listado( {array} ) {
+export default function Listado( {array, onAniadirProducto} ) {
   console.log(array);
   const [arrayProductos, setArrayProductos] = useState(array);
 
@@ -17,7 +17,9 @@ export default function Listado( {array} ) {
   return (
     <div className='container'>
       {arrayProductos.map((producto)=>(
-        <Item key={producto.id} obj={producto}/>
+        <Item key={producto.id} 
+              obj={producto} 
+              onAniadirProducto={onAniadirProducto}/>
       ))}    
     </div>)
 }
